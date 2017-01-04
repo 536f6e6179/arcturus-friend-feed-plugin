@@ -14,9 +14,8 @@ var FriendFeedMessages = (function() {
         }
     }
 
-    function Class(options) {
-        var options = options | {};
-        Object.assign(this, options);
+    function Class(limit) {
+        this.limit = limit;
     }
 
     Object.defineProperties(Class, DEFAULT_PROPERTIES);
@@ -43,9 +42,8 @@ var FriendFeedException = (function() {
         }
     }
 
-    function Class(options) {
-        var options = options | {};
-        Object.assign(this, options);
+    function Class(message) {
+        this.message = message;
     }
 
     Object.defineProperties(Class, DEFAULT_PROPERTIES);
