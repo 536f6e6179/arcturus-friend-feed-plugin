@@ -13,12 +13,13 @@ import static org.junit.Assert.*;
 public class UserTriggerTest {
     public static final int TEST_USER_ID = 1;
     public static final String TEST_USERNAME = "test-username";
+    public static final String TEST_USER_LOOK = "test-look";
 
     private UserTrigger trigger;
 
     @Before
     public void setUp() throws Exception {
-        this.trigger = new UserTrigger(new ArrayList<String>(), "", TEST_USER_ID, TEST_USERNAME);
+        this.trigger = new UserTrigger(new ArrayList<String>(), "", TEST_USER_ID, TEST_USERNAME, TEST_USER_LOOK);
     }
 
     @Test
@@ -29,6 +30,11 @@ public class UserTriggerTest {
     @Test
     public void getUsername() throws Exception {
         assertEquals(TEST_USERNAME, this.trigger.getUsername());
+    }
+
+    @Test
+    public void getUserLook() throws Exception {
+        assertEquals(TEST_USER_LOOK, this.trigger.getUserLook());
     }
 
 }

@@ -51,7 +51,7 @@ public class PusherServiceTest {
             channels.add("test-" + i);
         }
 
-        ITrigger trigger = new UserMottoSavedTrigger(channels, 0, "username", "My old shitty motto", "My sexy ass new motto!");
+        ITrigger trigger = new UserMottoSavedTrigger(channels, 0, "username", "look", "My old shitty motto", "My sexy ass new motto!");
         this.service.trigger(trigger);
     }
 

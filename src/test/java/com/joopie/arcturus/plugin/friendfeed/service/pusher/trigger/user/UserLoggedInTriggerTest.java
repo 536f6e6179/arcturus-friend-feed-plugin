@@ -15,7 +15,7 @@ public class UserLoggedInTriggerTest {
 
     @Before
     public void setUp() throws Exception {
-        this.trigger = new UserLoggedInTrigger(new ArrayList<String>(), 0, "");
+        this.trigger = new UserLoggedInTrigger(new ArrayList<String>(), 0, "", "");
     }
 
     @Test

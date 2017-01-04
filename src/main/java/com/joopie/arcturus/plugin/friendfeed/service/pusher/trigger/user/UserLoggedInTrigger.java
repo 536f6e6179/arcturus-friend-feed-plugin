@@ -10,7 +10,7 @@ import java.util.List;
 public class UserLoggedInTrigger extends UserTrigger implements ITrigger {
     public static final String TRIGGER = "user-logged-in";
 
-    public UserLoggedInTrigger(List<String> channels, int userId, String username) {
-        super(channels, TRIGGER, userId, username);
+    public UserLoggedInTrigger(List<String> channels, int userId, String username, String userLook) {
+        super(channels, TRIGGER, userId, username, userLook);
     }
 }

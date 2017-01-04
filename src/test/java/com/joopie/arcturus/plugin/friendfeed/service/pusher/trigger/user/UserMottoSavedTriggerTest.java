@@ -18,7 +18,7 @@ public class UserMottoSavedTriggerTest {
 
     @Before
     public void setUp() throws Exception {
-        this.trigger = new UserMottoSavedTrigger(new ArrayList<String>(), 0, "", TEST_OLD_MOTTO, TEST_NEW_MOTTO);
+        this.trigger = new UserMottoSavedTrigger(new ArrayList<String>(), 0, "", "", TEST_OLD_MOTTO, TEST_NEW_MOTTO);
     }
 
     @Test

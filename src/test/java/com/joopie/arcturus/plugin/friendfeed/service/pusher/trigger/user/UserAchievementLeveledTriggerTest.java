@@ -19,7 +19,7 @@ public class UserAchievementLeveledTriggerTest {
 
     @Before
     public void setUp() throws Exception {
-        this.trigger = new UserAchievementLeveledTrigger(new ArrayList<String>(), 0, "", TEST_ACHIEVEMENT, TEST_OLD_LEVEL, TEST_NEW_LEVEL);
+        this.trigger = new UserAchievementLeveledTrigger(new ArrayList<String>(), 0, "", "", TEST_ACHIEVEMENT, TEST_OLD_LEVEL, TEST_NEW_LEVEL);
     }
 
     @Test

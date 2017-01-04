@@ -18,8 +18,8 @@ public class UserAchievementLeveledTrigger extends UserTrigger implements ITrigg
     @Expose
     private int newLevel;
 
-    public UserAchievementLeveledTrigger(List<String> channels, int userId, String username, String achievement, int oldLevel, int newLevel) {
-        super(channels, TRIGGER, userId, username);
+    public UserAchievementLeveledTrigger(List<String> channels, int userId, String username, String userLook, String achievement, int oldLevel, int newLevel) {
+        super(channels, TRIGGER, userId, username, userLook);
 
         this.achievement = achievement;
         this.oldLevel = oldLevel;

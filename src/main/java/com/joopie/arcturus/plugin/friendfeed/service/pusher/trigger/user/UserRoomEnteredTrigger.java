@@ -16,8 +16,8 @@ public class UserRoomEnteredTrigger extends UserTrigger implements ITrigger {
     @Expose
     private String roomName;
 
-    public UserRoomEnteredTrigger(List<String> channels, int userId, String username, int roomId, String roomName) {
-        super(channels, TRIGGER, userId, username);
+    public UserRoomEnteredTrigger(List<String> channels, int userId, String username, String userLook, int roomId, String roomName) {
+        super(channels, TRIGGER, userId, username, userLook);
 
         this.roomId = roomId;
         this.roomName = roomName;

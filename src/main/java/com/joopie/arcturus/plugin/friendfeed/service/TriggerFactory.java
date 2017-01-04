@@ -22,6 +22,7 @@ public class TriggerFactory {
                 channels,
                 event.habbo.getHabboInfo().getId(),
                 event.habbo.getHabboInfo().getUsername(),
+                event.habbo.getHabboInfo().getLook(),
                 event.achievement.name,
                 event.oldLevel.level,
                 event.newLevel.level);
@@ -33,8 +34,10 @@ public class TriggerFactory {
                 channels,
                 event.habbo.getHabboInfo().getId(),
                 event.habbo.getHabboInfo().getUsername(),
+                event.habbo.getHabboInfo().getLook(),
                 event.friend.getId(),
-                event.friend.getUsername());
+                event.friend.getUsername(),
+                event.friend.getLook());
     }
 
     public static ITrigger createTrigger(UserLoginEvent event) {
@@ -42,7 +45,8 @@ public class TriggerFactory {
         return new UserLoggedInTrigger(
                 channels,
                 event.habbo.getHabboInfo().getId(),
-                event.habbo.getHabboInfo().getUsername());
+                event.habbo.getHabboInfo().getUsername(),
+                event.habbo.getHabboInfo().getLook());
     }
 
     public static ITrigger createTrigger(UserSavedMottoEvent event) {
@@ -51,6 +55,7 @@ public class TriggerFactory {
                 channels,
                 event.habbo.getHabboInfo().getId(),
                 event.habbo.getHabboInfo().getUsername(),
+                event.habbo.getHabboInfo().getLook(),
                 event.oldMotto,
                 event.newMotto);
     }
@@ -61,6 +66,7 @@ public class TriggerFactory {
                 channels,
                 event.habbo.getHabboInfo().getId(),
                 event.habbo.getHabboInfo().getUsername(),
+                event.habbo.getHabboInfo().getLook(),
                 event.room.getId(),
                 event.room.getName());
     }

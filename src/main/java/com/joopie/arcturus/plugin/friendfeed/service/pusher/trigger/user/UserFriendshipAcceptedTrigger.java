@@ -15,12 +15,15 @@ public class UserFriendshipAcceptedTrigger extends UserTrigger implements ITrigg
     private int friendId;
     @Expose
     private String friendname;
+    @Expose
+    private String friendLook;
 
-    public UserFriendshipAcceptedTrigger(List<String> channels, int userId, String username, int friendId, String friendname) {
-        super(channels, TRIGGER, userId, username);
+    public UserFriendshipAcceptedTrigger(List<String> channels, int userId, String username, String userLook, int friendId, String friendname, String friendLook) {
+        super(channels, TRIGGER, userId, username, userLook);
 
         this.friendId = friendId;
         this.friendname = friendname;
+        this.friendLook = friendLook;
     }
 
     public int getFriendId() {
@@ -29,5 +32,9 @@ public class UserFriendshipAcceptedTrigger extends UserTrigger implements ITrigg
 
     public String getFriendname() {
         return this.friendname;
+    }
+
+    public String getFriendLook() {
+        return this.friendLook;
     }
 }

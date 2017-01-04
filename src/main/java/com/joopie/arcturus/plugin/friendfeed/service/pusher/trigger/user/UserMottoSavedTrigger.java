@@ -16,8 +16,8 @@ public class UserMottoSavedTrigger extends UserTrigger implements ITrigger {
     @Expose
     private String newMotto;
 
-    public UserMottoSavedTrigger(List<String> channels, int userId, String username, String oldMotto, String newMotto) {
-        super(channels, TRIGGER, userId, username);
+    public UserMottoSavedTrigger(List<String> channels, int userId, String username, String userLook, String oldMotto, String newMotto) {
+        super(channels, TRIGGER, userId, username, userLook);
 
         this.oldMotto = oldMotto;
         this.newMotto = newMotto;

@@ -18,7 +18,7 @@ public class UserRoomEnteredTriggerTest {
 
     @Before
     public void setUp() throws Exception {
-        this.trigger = new UserRoomEnteredTrigger(new ArrayList<String>(), 0, "", TEST_ROOM_ID, TEST_ROOM_NAME);
+        this.trigger = new UserRoomEnteredTrigger(new ArrayList<String>(), 0, "", "", TEST_ROOM_ID, TEST_ROOM_NAME);
     }
 
     @Test

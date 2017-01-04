@@ -13,12 +13,13 @@ import static org.junit.Assert.*;
 public class UserFriendshipAcceptedTriggerTest {
     public static final int TEST_FRIEND_ID = 3;
     public static final String TEST_FRIENDNAME = "test-friendname";
+    public static final String TEST_FRIEND_LOOK = "test-look";
 
     private UserFriendshipAcceptedTrigger trigger;
 
     @Before
     public void setUp() throws Exception {
-        this.trigger = new UserFriendshipAcceptedTrigger(new ArrayList<String>(), 0, "", TEST_FRIEND_ID, TEST_FRIENDNAME);
+        this.trigger = new UserFriendshipAcceptedTrigger(new ArrayList<String>(), 0, "", "", TEST_FRIEND_ID, TEST_FRIENDNAME, TEST_FRIEND_LOOK);
     }
 
     @Test
@@ -31,4 +32,8 @@ public class UserFriendshipAcceptedTriggerTest {
         assertEquals(TEST_FRIENDNAME, this.trigger.getFriendname());
     }
 
+    @Test
+    public void getFriendLook() throws Exception {
+        assertEquals(TEST_FRIEND_LOOK, this.trigger.getFriendLook());
+    }
 }

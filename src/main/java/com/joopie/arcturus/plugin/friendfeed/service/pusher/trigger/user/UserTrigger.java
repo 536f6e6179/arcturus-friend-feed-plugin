@@ -14,12 +14,15 @@ public class UserTrigger extends Trigger implements ITrigger{
     private int userId;
     @Expose
     private String username;
+    @Expose
+    private String userLook;
 
-    public UserTrigger(List<String> channels, String trigger, int userId, String username) {
+    public UserTrigger(List<String> channels, String trigger, int userId, String username, String userLook) {
         super(channels, trigger);
 
         this.userId = userId;
         this.username = username;
+        this.userLook = userLook;
     }
 
     public int getUserId() {
@@ -28,5 +31,9 @@ public class UserTrigger extends Trigger implements ITrigger{
 
     public String getUsername() {
         return this.username;
+    }
+
+    public String getUserLook() {
+        return this.userLook;
     }
 }
