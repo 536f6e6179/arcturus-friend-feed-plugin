@@ -6,34 +6,72 @@
 
     <groupId>com.joopie.arcturus.plugin.friendfeed</groupId>
     <artifactId>ArcturusFriendFeedPlugin</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+    <name>arcturus-friend-feed-plugin</name>
+    <url>https://github.com/Joopie1994/arcturus-friend-feed-plugin</url>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>fully.qualified.MainClass</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id> <!-- this is used for inheritance merges -->
+                        <phase>package</phase> <!-- bind to the packaging phase -->
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <properties>
+        <junit.version>4.12</junit.version>
+        <mockito.version>2.0.2-beta</mockito.version>
+        <arcturus.version>1.1.0</arcturus.version>
+        <pusher.version>1.0.0</pusher.version>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
-            <version>2.0.2-beta</version>
+            <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>com.eu.habbo</groupId>
             <artifactId>Habbo</artifactId>
-            <version>1.1.0</version>
+            <version>${arcturus.version}</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>com.pusher</groupId>
             <artifactId>pusher-http-java</artifactId>
-            <version>1.0.0</version>
+            <version>${pusher.version}</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>

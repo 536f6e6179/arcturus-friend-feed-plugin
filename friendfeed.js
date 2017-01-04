@@ -216,7 +216,7 @@ var FriendFeed = (function(Pusher, FriendFeedException, FriendFeedMessages) {
         this.container.classList.add("friendfeed-container");
 
         var scope = this;
-        bindings.forEach(function(binding) {
+        BINDINGS.forEach(function(binding) {
             scope.channel.bind(binding.trigger, binding.callback, scope);
         });
     }

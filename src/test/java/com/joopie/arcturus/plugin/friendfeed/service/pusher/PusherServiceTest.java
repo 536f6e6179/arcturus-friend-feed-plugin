@@ -18,7 +18,7 @@ public class PusherServiceTest {
     public static final String CONFIG_PUSHER_ID = "";
     public static final String CONFIG_PUSHER_KEY = "";
     public static final String CONFIG_PUSHER_SECRET = "";
-    public static final String CONFIG_PUSHER_CLUSTER = "eu";
+    public static final String CONFIG_PUSHER_CLUSTER = "";
     public static final boolean CONFIG_PUSHER_ENCRYPTED = true;
 
     public static final int TEST_AMOUNT_CHANNELS = 15;
