@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arcturus-friend-feed-plugin example</title>
+
+    <link rel="stylesheet" href="../friendfeed.css">
+    <style>
+        body{
+            font-family: Arial;
+        }
+        .container{
+            border-radius: 3px;
+            border: 1px solid #C6C6C6;
+        }
+        .container > h1{
+            border-radius: 3px;
+            background-color: #FF0000;
+            color: #FFFFFF;
+            font-size: 16px;
+            margin: 6px;
+            padding: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Live Feed</h1>
+
+        <div id="live-feed" class="container-content"></div>
+    </div>
+
+    <script src="//js.pusher.com/3.2/pusher.min.js"></script>
+    <script src="../friendfeed.js"></script>
+    <script>
+        var liveFeed = new FriendFeed({
+            userId: 1,
+            limit: 20,
+            container: document.getElementById("live-feed"),
+            pusherKey: "9c2ca0e8bf8826b92d64",
+            pusherOptions: {
+                cluster: "eu",
+                encrypted: true,
+                authEndpoint: "/example/auth.php",
+
+            }
+        });
+    </script>
+</body>
+</html>

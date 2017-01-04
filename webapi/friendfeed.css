@@ -1,0 +1,63 @@
+.clear-both{
+    clear: both;
+}
+.friendfeed-container{
+    width: 100%;
+    height: auto;
+}
+.friendfeed-message{
+    width: 100%;
+    min-height: 50px;
+    box-sizing: border-box;
+    padding: 6px;
+    display: table;
+}
+.friendfeed-message:nth-child(odd){
+    background-color: #C6C6C6;
+}
+.friendfeed-message:nth-child(even){
+    background-color: #D8D8D8;
+}
+.friendfeed-img,
+.friendfeed-content{
+    display: table-cell;
+    vertical-align: top;
+}
+.friendfeed-no-messages .friendfeed-content{
+    vertical-align: middle;
+}
+.friendfeed-img{
+    width: 50px;
+    height: 100%;
+    text-align: center;
+}
+.friendfeed-content{
+    width: auto;
+    position: relative;
+}
+.friendfeed-img > img{
+    max-width: 100%;
+    max-height: 100%;
+}
+.friendfeed-content-username,
+.friendfeed-content-text,
+.friendfeed-content-date{
+    margin: 3px 0;
+    padding: 0;
+    font-size: 11px;
+}
+.friendfeed-content-username{
+    font-weight: bold;
+}
+.friendfeed-content-text{
+    padding-bottom: 18px;
+}
+.friendfeed-no-messages .friendfeed-content-text{
+    padding: 0;
+    text-align: center;
+}
+.friendfeed-content-date{
+    font-style: italic;
+    position: absolute;
+    bottom: 0;
+}

@@ -7,25 +7,27 @@ var FriendFeedMessages = (function() {
 
     var DEFAULT_PROPERTIES = {
         limit: {
-            value: 10
+            value: 10,
+            writable: true
         },
         messages: {
-            value: []
+            value: [],
+            writable: true,
         }
     }
 
     function Class(limit) {
+        Object.defineProperties(this, DEFAULT_PROPERTIES);
+
         this.limit = limit;
     }
-
-    Object.defineProperties(Class, DEFAULT_PROPERTIES);
 
     Class.prototype.add = function(message) {
         this.messages.unshift(message);
         if (this.messages.length > this.limit) {
             this.messages.pop();
         }
-    }
+    };
 
     Class.prototype.getMessages = function() {
         return this.messages.slice(0);
@@ -38,15 +40,16 @@ var FriendFeedException = (function() {
 
     var DEFAULT_PROPERTIES = {
         message: {
-            value: ""
+            value: "",
+            writable: true
         }
     }
 
     function Class(message) {
+        Object.defineProperties(this, DEFAULT_PROPERTIES);
+
         this.message = message;
     }
-
-    Object.defineProperties(Class, DEFAULT_PROPERTIES);
 
     Class.prototype.toString = function() {
         return "FriendFeedException: " + this.message;
@@ -71,7 +74,7 @@ var FriendFeed = (function(Pusher, FriendFeedException, FriendFeedMessages) {
             },
             username: data['username'],
             text: "Has earned the '" + data['achievement'] + "' achievement!",
-            date: Date.now()
+            date: new Date().toLocaleString('en-GB')
         });
 
         this.update();
@@ -85,7 +88,7 @@ var FriendFeed = (function(Pusher, FriendFeedException, FriendFeedMessages) {
             },
             username: data['username'],
             text: "Is now friends with " + data['friendname'] + "!",
-            date: Date.now()
+            date: new Date().toLocaleString('en-GB')
         });
 
         this.update();
@@ -99,7 +102,7 @@ var FriendFeed = (function(Pusher, FriendFeedException, FriendFeedMessages) {
             },
             username: data['username'],
             text: "Just entered the hotel!",
-            date: Date.now()
+            date: new Date().toLocaleString('en-GB')
         });
 
         this.update();
@@ -113,7 +116,7 @@ var FriendFeed = (function(Pusher, FriendFeedException, FriendFeedMessages) {
             },
             username: data['username'],
             text: "Changed motto to '" + data['new-motto'] + "'!",
-            date: Date.now()
+            date: new Date().toLocaleString('en-GB')
         });
 
         this.update();
@@ -127,7 +130,7 @@ var FriendFeed = (function(Pusher, FriendFeedException, FriendFeedMessages) {
             },
             username: data['username'],
             text: "Just entered the room '" + data['room-name'] + "'!",
-            date: Date.now()
+            date: new Date().toLocaleString('en-GB')
         });
 
         this.update();
@@ -158,40 +161,50 @@ var FriendFeed = (function(Pusher, FriendFeedException, FriendFeedMessages) {
 
     var DEFAULT_PROPERTIES = {
         userId: {
-            value: null
+            value: null,
+            writable: true
         },
         limit: {
-            value: 10
+            value: 10,
+            writable: true
         },
 
         container: {
-            value: null
+            value: null,
+            writable: true
         },
 
         pusherKey: {
-            value: null
+            value: null,
+            writable: true
         },
         pusherOptions: {
-            value: {}
+            value: {},
+            writable: true
         },
 
         templateLookUrl: {
-            value: "http://habbo.com/habbo-imaging/avatarimage"
+            value: "http://habbo.com/habbo-imaging/avatarimage",
+            writable: true
         },
         templateAchievementUrl: {
-            value: "https://habboo-a.akamaihd.net/c_images/album1584/"
+            value: "https://habboo-a.akamaihd.net/c_images/album1584/",
+            writable: true
         },
 
         messages: {
-            value: null
+            value: null,
+            writable: true
         },
 
         pusher: {
-            value: null
+            value: null,
+            writable: true
         },
 
         channel: {
-            value: null
+            value: null,
+            writable: true
         }
     };
 
@@ -204,7 +217,9 @@ var FriendFeed = (function(Pusher, FriendFeedException, FriendFeedMessages) {
     }
 
     function Class(options) {
-        var options = options | {};
+        Object.defineProperties(this, DEFAULT_PROPERTIES);
+
+        var options = options || {};
         validateOptions(options);
         Object.assign(this, options);
 
@@ -219,6 +234,8 @@ var FriendFeed = (function(Pusher, FriendFeedException, FriendFeedMessages) {
         BINDINGS.forEach(function(binding) {
             scope.channel.bind(binding.trigger, binding.callback, scope);
         });
+
+        this.update();
     }
 
     Class.prototype.update = function() {
@@ -227,14 +244,25 @@ var FriendFeed = (function(Pusher, FriendFeedException, FriendFeedMessages) {
         var scope = this;
         this.messages.getMessages().forEach(function(message) {
             scope.container.innerHTML += "<div class='friendfeed-message'>" +
-                "   <img class='friendfeed-message-img' src='" + message.img.src + "' alt='" + message.img.alt + "'>" +
+                "   <div class='friendfeed-img'>" +
+                "      <img src='" + message.img.src + "' alt='" + message.img.alt + "'>" +
+                "   </div>" +
                 "   <div class='friendfeed-content'>" +
                 "       <p class='friendfeed-content-username'>" + message.username + "</p>" +
                 "       <p class='friendfeed-content-text'>" + message.text + "</p>" +
                 "       <p class='friendfeed-content-date'>" + message.date + "</p>" +
                 "   </div>" +
+                "   <div class='clear-both'></div>" +
                 "</div>";
         });
+
+        if (this.messages.getMessages().length < 1) {
+            this.container.innerHTML = "<div class='friendfeed-message friendfeed-no-messages'>" +
+                "   <div class='friendfeed-content'>" +
+                "       <p class='friendfeed-content-text'>No feeds yet! Keep this page open and see the messages popping up.</p>" +
+                "   </div>" +
+                "</div>";
+        }
     };
 
     return Class;
