@@ -66,7 +66,7 @@ var FriendFeed = (function(Pusher, FriendFeedException, FriendFeedMessages) {
     function onUserAchievementLeveled(data) {
         this.messages.add({
             img: {
-                src: this.templateAchievementUrl + data['achievement'] + "_" + data['new-level'] + ".png",
+                src: this.templateAchievementUrl + data['achievement'] + data['new-level'] + ".gif", //ACH_RegistrationDuration20.gif
                 alt: data['achievement']
             },
             username: data['username'],
@@ -179,7 +179,7 @@ var FriendFeed = (function(Pusher, FriendFeedException, FriendFeedMessages) {
             value: "http://habbo.com/habbo-imaging/avatarimage"
         },
         templateAchievementUrl: {
-            value: ""
+            value: "https://habboo-a.akamaihd.net/c_images/album1584/"
         },
 
         messages: {
