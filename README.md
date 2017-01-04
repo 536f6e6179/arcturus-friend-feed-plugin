@@ -8,15 +8,19 @@
 
 ### Arcturus
 
-`#ArcturusFriendFeedPlugin
+```
+#ArcturusFriendFeedPlugin
 plugin.friendfeed.pusher.id=
 plugin.friendfeed.pusher.key=
 plugin.friendfeed.pusher.secret=
 plugin.friendfeed.pusher.cluster=
-plugin.friendfeed.pusher.encrypted=true`
+plugin.friendfeed.pusher.encrypted=true
+```
 
 ### Web
 
 #### Authentication
 
-``Some fancy php code in here``
+```
+Some fancy php code in here
+```
