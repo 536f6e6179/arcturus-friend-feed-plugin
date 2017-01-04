@@ -1,0 +1,5 @@
+{
+  "main": "com.joopie.arcturus.plugin.friendfeed.FriendFeedPlugin",
+  "name": "Arcturus friend feed plugin",
+  "author": "Joopie"
+}
