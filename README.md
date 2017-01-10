@@ -1,5 +1,7 @@
 # Arcturus friend feed plugin
 
+*Some events may not work like intended. This plugin depends on [pusher.com](https://pusher.com) and its services. This plugin depends on the information provided by [Arcturus](https://bitbucket.org/Wesley12312/arcturus).*
+
 This plugin allows you to broadcast certain events happening in the hotel. This plugin is based on Habbo's own Stream which, at this point, is not there anymore. The plugin can broadcast those events at realtime anywhere! To achieve this, a service called [pusher.com](https://pusher.com) is used as the distributor. The events send as messages via this service can be shown anywhere! For example, and included in this repository, on your website as shown below in the picture. 
 
 ![alt text](pictures/example-live-feed.png "Example live feed")
