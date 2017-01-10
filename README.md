@@ -1,24 +1,44 @@
-# arcturus-friend-feed-plugin
+# Arcturus friend feed plugin
 
-- Explain here what the plugin is all about.
+This plugin allows you to broadcast certain events happening in the hotel. This plugin is based on Habbo's own Stream which, at this point, is not there anymore. The plugin can broadcast those events at realtime anywhere! To achieve this, a service called [pusher.com](https://pusher.com) is used as the distributor. The events send as messages via this service can be shown anywhere! For example, and included in this repository, on your website as shown below in the picture. 
 
 ![alt text](pictures/example-live-feed.png "Example live feed")
 
+This plugin broadcasts the following events:
+- User achievement leveled up.
+- User accept friend request.
+- User logged in.
+- User saved motto.
+- User entered a room.
+
+Take a good look in the [webapi folder](webapi) and its [example folder](webapi/example)!
+
 ## Compile
 
-- Simple maven command on how to compile it.
+You can use any IDE with Maven support to compile this plugin!
+However, using the following command will work too.
+
+```
+mvn clean package
+```
 
 ## Configuration
 
-- Introduction.
+In order to use this plugin there are some parts you need to configure. The configuration part is split up in a few sections. Those sections are:
+
+- Pusher
+- Arcturus
+- Webapi
+
+It's recommend to read those sections carefully.
 
 ### Pusher
 
-
+The main service for this plugin is from [pusher.com](https://pusher.com). It's a free service (with its limitations) where you can easily broadcast realtime messages to channels. In order to use this service you need to register a free (or paid) account and create a new api. When the api is created you can obtain the api id, key and secret from the dashboard!
 
 ### Arcturus
 
-When you placed the compiled version of this plugin in the `plugins` folder of [Arcturus](https://bitbucket.org/Wesley12312/arcturus). Some plugin configuration is needed in order to get it working. Below is shown the configuration keys without values, the key names speak for themself, and need to be placed in the config.ini file of [Arcturus](https://bitbucket.org/Wesley12312/arcturus). The needed information can be obtained [pusher.com](https://pusher.com).
+When you placed the compiled version of this plugin in the `plugins` folder of [Arcturus](https://bitbucket.org/Wesley12312/arcturus). Some plugin configuration is needed in order to get it working. Below is shown the configuration keys without values, the key names speak for themself, and need to be placed in the `config.ini` file of [Arcturus](https://bitbucket.org/Wesley12312/arcturus). The needed information can be obtained [pusher.com](https://pusher.com).
 
 ```
 #ArcturusFriendFeedPlugin
@@ -64,7 +84,7 @@ templateAchievementUrl | A url pointing to the base path which is used to obtain
 
 #### Authentication endpoint
 
-Because this api uses the [private channels](https://pusher.com/docs/client_api_guide/client_private_channels) feature of [pusher.com](https://pusher.com), it is needed to authenticate the user for the channel. An example on how to do this can be found [here](webapi/example/auth.php).
+Because this api uses the [private channels](https://pusher.com/docs/client_api_guide/client_private_channels) feature of [pusher.com](https://pusher.com), it is needed to authenticate the user for the channel. An example on how to do this can be found [here](webapi/example/auth.php). Note you need the [pusher.com library](https://github.com/pusher/pusher-http-php) for this!
 
 The core of the file is as follow:
 

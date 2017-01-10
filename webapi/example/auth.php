@@ -3,7 +3,7 @@
     define('PUSHER_KEY', '');
     define('PUSHER_SECRET', '');
 
-    require_once './lib/Pusher.php';
+    require_once './lib/Pusher.php'; // https://github.com/pusher/pusher-http-php
 
     if (!isset($_POST['socket_id'], $_POST['channel_name'])) {
         header('HTTP/1.0 401 Unauthorized');
