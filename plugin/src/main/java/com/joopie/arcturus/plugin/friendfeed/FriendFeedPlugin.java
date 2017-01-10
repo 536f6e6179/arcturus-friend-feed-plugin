@@ -15,12 +15,15 @@ import com.joopie.arcturus.plugin.friendfeed.service.ServiceFactory;
 import com.joopie.arcturus.plugin.friendfeed.service.TriggerFactory;
 
 /**
- * Created by jospi on 3-1-2017.
+ * The main class for the friend feed plugin.
  */
 public class FriendFeedPlugin extends HabboPlugin implements EventListener {
 
     private IService service;
 
+    /**
+     * Create a new instance of the class. Creates a service and registers the events.
+     */
     public FriendFeedPlugin() {
         this.service = ServiceFactory.createService();
 
@@ -42,6 +45,10 @@ public class FriendFeedPlugin extends HabboPlugin implements EventListener {
         return true;
     }
 
+    /**
+     * Fired when a user gets a level up achievement.
+     * @param event
+     */
     @EventHandler
     public void onUserAchievementLeveled(UserAchievementLeveledEvent event) {
         this.service.trigger(
@@ -49,6 +56,10 @@ public class FriendFeedPlugin extends HabboPlugin implements EventListener {
         );
     }
 
+    /**
+     * Fired when a user accept a friend request.
+     * @param event
+     */
     @EventHandler
     public void onUserAcceptFriendRequest(UserAcceptFriendRequestEvent event) {
         this.service.trigger(
@@ -56,6 +67,10 @@ public class FriendFeedPlugin extends HabboPlugin implements EventListener {
         );
     }
 
+    /**
+     * Fired when a user logs in.
+     * @param event
+     */
     @EventHandler
     public void onUserLogin(UserLoginEvent event) {
         this.service.trigger(
@@ -63,6 +78,10 @@ public class FriendFeedPlugin extends HabboPlugin implements EventListener {
         );
     }
 
+    /**
+     * Fired when a user saved the motto.
+     * @param event
+     */
     @EventHandler
     public void onUserMottoSaved(UserSavedMottoEvent event) {
         this.service.trigger(
@@ -70,6 +89,10 @@ public class FriendFeedPlugin extends HabboPlugin implements EventListener {
         );
     }
 
+    /**
+     * Fired when a user enters a room.
+     * @param event
+     */
     @EventHandler
     public void onUserEnterRoom(UserEnterRoomEvent event) {
         this.service.trigger(

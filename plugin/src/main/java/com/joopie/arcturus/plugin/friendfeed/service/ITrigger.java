@@ -1,8 +1,12 @@
 package com.joopie.arcturus.plugin.friendfeed.service;
 
 /**
- * Created by jospi on 3-1-2017.
+ * Interface for trigger.
  */
 public interface ITrigger {
+    /**
+     * Sends out the trigger to the service.
+     * @param service
+     */
     void trigger(IService service);
 }

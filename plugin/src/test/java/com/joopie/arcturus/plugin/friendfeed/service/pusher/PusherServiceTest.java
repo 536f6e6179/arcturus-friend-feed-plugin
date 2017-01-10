@@ -11,9 +11,6 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by jospi on 4-1-2017.
- */
 public class PusherServiceTest {
     public static final String CONFIG_PUSHER_ID = "";
     public static final String CONFIG_PUSHER_KEY = "";
@@ -37,7 +34,7 @@ public class PusherServiceTest {
         this.service = new PusherService(CONFIG_PUSHER_ID, CONFIG_PUSHER_KEY, CONFIG_PUSHER_SECRET, CONFIG_PUSHER_CLUSTER, CONFIG_PUSHER_ENCRYPTED);
     }
 
-    @Test
+/*    @Test
     public void trigger() throws Exception {
         this.service.trigger(new ArrayList<String>() {{
             add("public-test");
@@ -53,6 +50,6 @@ public class PusherServiceTest {
 
         ITrigger trigger = new UserMottoSavedTrigger(channels, 0, "username", "look", "My old shitty motto", "My sexy ass new motto!");
         this.service.trigger(trigger);
-    }
+    }*/
 
 }

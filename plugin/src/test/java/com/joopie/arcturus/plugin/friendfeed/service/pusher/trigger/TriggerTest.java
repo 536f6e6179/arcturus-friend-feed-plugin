@@ -13,9 +13,6 @@ import java.util.List;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
-/**
- * Created by jospi on 4-1-2017.
- */
 @RunWith(MockitoJUnitRunner.class)
 public class TriggerTest {
     public static final String TEST_TRIGGER = "test-trigger";
@@ -43,15 +40,4 @@ public class TriggerTest {
         this.trigger.trigger(this.service);
         verify(this.service, times(TEST_AMOUNT_TRIGGERS)).trigger(anyListOf(String.class), eq(TEST_TRIGGER), eq(this.trigger));
     }
-
-    @Test
-    public void getChannels() throws Exception {
-        assertEquals(TEST_AMOUNT_CHANNELS, this.trigger.getChannels().size());
-    }
-
-    @Test
-    public void getTrigger() throws Exception {
-        assertEquals(TEST_TRIGGER, this.trigger.getTrigger());
-    }
-
 }

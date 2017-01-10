@@ -4,7 +4,7 @@ import com.eu.habbo.Emulator;
 import com.joopie.arcturus.plugin.friendfeed.service.pusher.PusherService;
 
 /**
- * Created by jospi on 3-1-2017.
+ * Creates a new trigger service.
  */
 public class ServiceFactory {
 
@@ -14,6 +14,10 @@ public class ServiceFactory {
     public static final String CONFIG_PUSHER_CLUSTER_KEY = "plugin.friendfeed.pusher.cluster";
     public static final String CONFIG_PUSHER_ENCRYPTED_KEY = "plugin.friendfeed.pusher.encrypted";
 
+    /**
+     * Returns now, by default, a Pusher service.
+     * @return
+     */
     public static IService createService() {
         String pusherId = Emulator.getConfig().getValue(CONFIG_PUSHER_ID_KEY);
         String pusherKey = Emulator.getConfig().getValue(CONFIG_PUSHER_KEY_KEY);

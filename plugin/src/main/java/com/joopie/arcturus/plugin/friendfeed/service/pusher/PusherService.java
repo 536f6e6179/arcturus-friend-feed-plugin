@@ -9,12 +9,20 @@ import com.pusher.rest.Pusher;
 import java.util.List;
 
 /**
- * Created by jospi on 4-1-2017.
+ * Service to use the Pusher library.
  */
 public class PusherService implements IService {
 
     private Pusher pusher;
 
+    /**
+     * Constructs and initialize a Pusher class.
+     * @param appId
+     * @param appKey
+     * @param appSecret
+     * @param appCluster
+     * @param appEncrypted
+     */
     public PusherService(String appId, String appKey, String appSecret, String appCluster, boolean appEncrypted) {
         this.pusher = new Pusher(appId, appKey, appSecret);
         this.pusher.setCluster(appCluster);

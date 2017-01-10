@@ -7,16 +7,21 @@ import com.joopie.arcturus.plugin.friendfeed.service.ITrigger;
 import java.util.List;
 
 /**
- * Created by jospi on 4-1-2017.
+ * Base class for a trigger.
  */
 public class Trigger implements ITrigger{
     public static final int MAX_CHANNELS = 10;
 
     @Expose(serialize = false, deserialize = false)
-    private List<String> channels;
+    public final List<String> channels;
     @Expose(serialize = false, deserialize = false)
-    private String trigger;
+    public final String trigger;
 
+    /**
+     * Create the base trigger class and set the channels and the trigger.
+     * @param channels
+     * @param trigger
+     */
     public Trigger(List<String> channels, String trigger) {
         this.channels = channels;
         this.trigger = trigger;
@@ -34,13 +39,5 @@ public class Trigger implements ITrigger{
 
             service.trigger(subChannels, this.trigger, this);
         }
-    }
-
-    public List<String> getChannels() {
-        return this.channels;
-    }
-
-    public String getTrigger() {
-        return this.trigger;
     }
 }

@@ -6,35 +6,33 @@ import com.joopie.arcturus.plugin.friendfeed.service.ITrigger;
 import java.util.List;
 
 /**
- * Created by jospi on 3-1-2017.
+ * A trigger class containing data.
  */
 public class UserAchievementLeveledTrigger extends UserTrigger implements ITrigger{
     public static final String TRIGGER = "user-achievement-leveled";
 
     @Expose
-    private String achievement;
+    public final String achievement;
     @Expose
-    private int oldLevel;
+    public final int oldLevel;
     @Expose
-    private int newLevel;
+    public final int newLevel;
 
+    /**
+     *
+     * @param channels
+     * @param userId
+     * @param username
+     * @param userLook
+     * @param achievement
+     * @param oldLevel
+     * @param newLevel
+     */
     public UserAchievementLeveledTrigger(List<String> channels, int userId, String username, String userLook, String achievement, int oldLevel, int newLevel) {
         super(channels, TRIGGER, userId, username, userLook);
 
         this.achievement = achievement;
         this.oldLevel = oldLevel;
         this.newLevel = newLevel;
-    }
-
-    public String getAchievement() {
-        return this.achievement;
-    }
-
-    public int getOldLevel() {
-        return this.oldLevel;
-    }
-
-    public int getNewLevel() {
-        return this.newLevel;
     }
 }

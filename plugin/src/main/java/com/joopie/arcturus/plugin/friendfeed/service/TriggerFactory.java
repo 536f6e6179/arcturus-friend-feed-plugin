@@ -13,9 +13,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by jospi on 4-1-2017.
+ * Factory for creating diffrent types of triggers according to a event.
  */
 public class TriggerFactory {
+    /**
+     * Creates the UserAchievementLeveledTrigger.
+     * @param event
+     * @return
+     */
     public static ITrigger createTrigger(UserAchievementLeveledEvent event) {
         List<String> channels = getChannelListFromHabbo(event.habbo);
         return new UserAchievementLeveledTrigger(
@@ -28,6 +33,11 @@ public class TriggerFactory {
                 event.newLevel.level);
     }
 
+    /**
+     * Creates the UserFriendshipAcceptedTrigger.
+     * @param event
+     * @return
+     */
     public static ITrigger createTrigger(UserAcceptFriendRequestEvent event) {
         List<String> channels = getChannelListFromHabbo(event.habbo);
         return new UserFriendshipAcceptedTrigger(
@@ -40,6 +50,11 @@ public class TriggerFactory {
                 event.friend.getLook());
     }
 
+    /**
+     * Creates the UserLoggedInTrigger.
+     * @param event
+     * @return
+     */
     public static ITrigger createTrigger(UserLoginEvent event) {
         List<String> channels = getChannelListFromHabbo(event.habbo);
         return new UserLoggedInTrigger(
@@ -49,6 +64,11 @@ public class TriggerFactory {
                 event.habbo.getHabboInfo().getLook());
     }
 
+    /**
+     * Creates the UserMottoSavedTrigger.
+     * @param event
+     * @return
+     */
     public static ITrigger createTrigger(UserSavedMottoEvent event) {
         List<String> channels = getChannelListFromHabbo(event.habbo);
         return new UserMottoSavedTrigger(
@@ -60,6 +80,11 @@ public class TriggerFactory {
                 event.newMotto);
     }
 
+    /**
+     * Creates the UserRoomEnteredTrigger.
+     * @param event
+     * @return
+     */
     public static ITrigger createTrigger(UserEnterRoomEvent event) {
         List<String> channels = getChannelListFromHabbo(event.habbo);
         return new UserRoomEnteredTrigger(

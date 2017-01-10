@@ -6,35 +6,33 @@ import com.joopie.arcturus.plugin.friendfeed.service.ITrigger;
 import java.util.List;
 
 /**
- * Created by jospi on 3-1-2017.
+ * A trigger class containing data.
  */
 public class UserFriendshipAcceptedTrigger extends UserTrigger implements ITrigger {
     public static final String TRIGGER = "user-friendship-accepted";
 
     @Expose
-    private int friendId;
+    public final int friendId;
     @Expose
-    private String friendname;
+    public final String friendname;
     @Expose
-    private String friendLook;
+    public final String friendLook;
 
+    /**
+     *
+     * @param channels
+     * @param userId
+     * @param username
+     * @param userLook
+     * @param friendId
+     * @param friendname
+     * @param friendLook
+     */
     public UserFriendshipAcceptedTrigger(List<String> channels, int userId, String username, String userLook, int friendId, String friendname, String friendLook) {
         super(channels, TRIGGER, userId, username, userLook);
 
         this.friendId = friendId;
         this.friendname = friendname;
         this.friendLook = friendLook;
-    }
-
-    public int getFriendId() {
-        return this.friendId;
-    }
-
-    public String getFriendname() {
-        return this.friendname;
-    }
-
-    public String getFriendLook() {
-        return this.friendLook;
     }
 }

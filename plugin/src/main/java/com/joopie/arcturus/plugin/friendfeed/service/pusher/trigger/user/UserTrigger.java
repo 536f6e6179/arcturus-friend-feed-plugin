@@ -7,33 +7,29 @@ import com.joopie.arcturus.plugin.friendfeed.service.pusher.trigger.Trigger;
 import java.util.List;
 
 /**
- * Created by jospi on 4-1-2017.
+ * A trigger class containing data.
  */
 public class UserTrigger extends Trigger implements ITrigger{
     @Expose
-    private int userId;
+    public final int userId;
     @Expose
-    private String username;
+    public final String username;
     @Expose
-    private String userLook;
+    public final String userLook;
 
+    /**
+     *
+     * @param channels
+     * @param trigger
+     * @param userId
+     * @param username
+     * @param userLook
+     */
     public UserTrigger(List<String> channels, String trigger, int userId, String username, String userLook) {
         super(channels, trigger);
 
         this.userId = userId;
         this.username = username;
         this.userLook = userLook;
-    }
-
-    public int getUserId() {
-        return this.userId;
-    }
-
-    public String getUsername() {
-        return this.username;
-    }
-
-    public String getUserLook() {
-        return this.userLook;
     }
 }
