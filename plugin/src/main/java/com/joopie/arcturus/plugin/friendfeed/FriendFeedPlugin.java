@@ -42,7 +42,7 @@ public class FriendFeedPlugin extends HabboPlugin implements EventListener {
 
     @Override
     public boolean hasPermission(Habbo habbo, String s) {
-        return true;
+        return false;
     }
 
     /**
